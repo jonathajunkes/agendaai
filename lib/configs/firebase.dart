@@ -12,7 +12,7 @@ class Firebase {
 
   call_child_db(String key){
     //var db = FirebaseDatabase.instance.reference().child("Users").orderByKey().equalTo(key);
-    var db = FirebaseDatabase.instance.reference().child("Users").orderByChild("senha").equalTo(key);
+    var db = FirebaseDatabase.instance.reference().child("Users").orderByChild("email").equalTo(key);
     db.once().then((DataSnapshot snapshot){
       Map<dynamic, dynamic> values = snapshot.value;
       values.forEach((key,values) {
