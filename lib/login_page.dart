@@ -6,7 +6,7 @@ class  LoginPage extends StatelessWidget {
   late String _emailId;
   late String _password;
   final _formKey = GlobalKey<FormState>();
-  final _emailIdController = TextEditingController(text: '');
+  final _emailController = TextEditingController(text: '');
   final _passwordController = TextEditingController(text: '');
 
   Firebase firebase = Firebase();
@@ -71,11 +71,11 @@ class  LoginPage extends StatelessWidget {
                       onSaved: (value) {
                         _emailId = value!;
                       },
-                      controller: _emailIdController,
+                      controller: _emailController,
                       //autofocus: true,
                       keyboardType: TextInputType.emailAddress,
                       decoration: const InputDecoration(
-                          labelText: "Nome de Usuário",
+                          labelText: "Email",
                           labelStyle: TextStyle(
                               color: Colors.black38,
                               fontWeight: FontWeight.w400,
@@ -150,8 +150,14 @@ class  LoginPage extends StatelessWidget {
                     ),
                     onPressed: () =>
                     {
+                      if(firebase.validaUser(_emailController.text,_passwordController.text)) {
+                        print("LOGO COM SUCESEXO")
+                      }else{
+                        print("ERRO ANIMAL")
+                      }
+
                       //firebase.call_child_db("junkes1995@gmail.com")
-                      firebase.createNewUser("12905361980", "braincz@gmail.com", "Braian C. Zapelli.", "123", "10/06/2002", "M", "semsenha")
+                      //firebase.createNewUser("12905361980", "braincz@gmail.com", "Braian C. Zapelli.", "123", "10/06/2002", "M", "semsenha")
                     },
                   ),
                 ),

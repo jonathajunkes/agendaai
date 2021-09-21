@@ -8,7 +8,28 @@ class Firebase {
 
   static const _firebaseUrl = 'https://agendaai-85f9f-default-rtdb.firebaseio.com/';
 
+  bool call_senha(String key,String pwd){
 
+    String senhaBD = '';
+    String cpf = '';
+    bool flag = false;
+    //var db = FirebaseDatabase.instance.reference().child("Users").orderByKey().equalTo(key);
+    var db = FirebaseDatabase.instance.reference().child("Users").orderByChild("email").equalTo(key);
+    db.once().then((DataSnapshot snapshot){
+    Map<dynamic, dynamic> values = snapshot.value;
+      values.forEach((key,values) {
+        cpf = key;
+        senhaBD = values["senha"];
+      });
+    });
+
+    if(senhaBD==gerarHASH(pwd)){
+      flag = true;
+    }else{
+      print("Senha errada");
+    }
+    return flag;
+  }
 
   call_child_db(String key){
     //var db = FirebaseDatabase.instance.reference().child("Users").orderByKey().equalTo(key);
@@ -45,6 +66,10 @@ class Firebase {
     var bytess = utf8.encode(texto);
     var hashs = sha256.convert(bytess);
     return hashs.toString();
+  }
+
+  bool validaUser(String emailID, String password) {
+    return call_senha(emailID,password);
   }
 
 
