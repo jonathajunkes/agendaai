@@ -13,6 +13,7 @@ class  LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool entrar;
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -148,14 +149,14 @@ class  LoginPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    onPressed: () =>
+                    onPressed: () async =>
                     {
-                      if(firebase.validaUser(_emailController.text,_passwordController.text)) {
-                        print("LOGO COM SUCESEXO")
-                      }else{
-                        print("ERRO ANIMAL")
+                      await{
+                        entrar = firebase.validaUser(_emailController.text,_passwordController.text)
+                        },
+                      if(entrar){
+                        print("OK")
                       }
-
                       //firebase.call_child_db("junkes1995@gmail.com")
                       //firebase.createNewUser("12905361980", "braincz@gmail.com", "Braian C. Zapelli.", "123", "10/06/2002", "M", "semsenha")
                     },

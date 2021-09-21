@@ -9,8 +9,8 @@ class Firebase {
   static const _firebaseUrl = 'https://agendaai-85f9f-default-rtdb.firebaseio.com/';
 
   bool call_senha(String key,String pwd){
-
     String senhaBD = '';
+    String senha = gerarHASH(pwd);
     String cpf = '';
     bool flag = false;
     //var db = FirebaseDatabase.instance.reference().child("Users").orderByKey().equalTo(key);
@@ -20,13 +20,17 @@ class Firebase {
       values.forEach((key,values) {
         cpf = key;
         senhaBD = values["senha"];
+        print(senhaBD);
+        print(senha);
+        if(senha==senhaBD){
+          print("True");
+        }
       });
+
     });
 
-    if(senhaBD==gerarHASH(pwd)){
+    if(senhaBD==senha){
       flag = true;
-    }else{
-      print("Senha errada");
     }
     return flag;
   }
