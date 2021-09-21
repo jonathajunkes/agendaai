@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1087958788546",
+    "firebase_url": "https://agendaai-85f9f-default-rtdb.firebaseio.com",
+    "project_id": "agendaai-85f9f",
+    "storage_bucket": "agendaai-85f9f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087958788546:android:16f50c0944edd234d1ce5b",
+        "android_client_info": {
+          "package_name": "br.edu.catolicasc.agendaapp.agendaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1087958788546-ai3l9v3u4no9re0pumh74sui3o00h3h7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt5PX6QnxmStVRsK2GQPG1SHq8MkU5q30"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1087958788546-ai3l9v3u4no9re0pumh74sui3o00h3h7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1087958788546-repeehqlket7q8o3fa7ota7tj2kh4l20.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "br.edu.catolicasc.agendaai.agendaai"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
