@@ -2,8 +2,24 @@ import 'package:flutter/material.dart';
 import '../configs/firebase.dart';
 
 class  cadastroCliente extends StatelessWidget {
+  late String _nomeCliente;
+  late String _cpfCliente;
+  late String _telefoneCliente;
+  late String _emailCliente;
+  late String _sexoCliente;
+  late String _datNascimentoCliente;
+  late String _passwordCliente;
+  final _formKey = GlobalKey<FormState>();
 
-  Firebase firebase=Firebase();
+  final _nomeController = TextEditingController(text: '');
+  final _cpfController = TextEditingController(text: '');
+  final _telefoneController = TextEditingController(text: '');
+  final _sexoController = TextEditingController(text: '');
+  final _emailController = TextEditingController(text: '');
+  final _datNascimentoController = TextEditingController(text: '');
+  final _passwordController = TextEditingController(text: '');
+
+  Firebase firebase = Firebase();
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +56,16 @@ class  cadastroCliente extends StatelessWidget {
               SizedBox(
                 height: 40,
               ),
-              TextFormField(
+                Form(
+                child: Column(
+                children: [
+                TextFormField(
+                onSaved: (value) {
+                _nomeCliente = value!;
+                },
+                controller: _nomeController,
                 //autofocus: true,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                     labelText: "Nome Cliente",
                     labelStyle: TextStyle(
@@ -55,9 +78,13 @@ class  cadastroCliente extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              TextFormField(
+                  TextFormField(
+                    onSaved: (value) {
+                      _cpfCliente = value!;
+                    },
+                    controller: _cpfController,
                 //autofocus: true,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                     labelText: "CPF",
                     labelStyle: TextStyle(
@@ -70,9 +97,13 @@ class  cadastroCliente extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              TextFormField(
+                  TextFormField(
+                    onSaved: (value) {
+                      _telefoneCliente = value!;
+                    },
+                    controller: _telefoneController,
                 //autofocus: true,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
                     labelText: "Telefone",
                     labelStyle: TextStyle(
@@ -85,7 +116,11 @@ class  cadastroCliente extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              TextFormField(
+                  TextFormField(
+                    onSaved: (value) {
+                      _emailCliente = value!;
+                    },
+                    controller: _emailController,
                 //autofocus: true,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
@@ -100,9 +135,33 @@ class  cadastroCliente extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              TextFormField(
+                  TextFormField(
+                    onSaved: (value) {
+                      _passwordCliente = value!;
+                    },
+                    controller: _passwordController,
+                    //autofocus: true,
+                    keyboardType: TextInputType.text,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                        labelText: "Senha",
+                        labelStyle: TextStyle(
+                            color: Colors.black38,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 20
+                        )
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    onSaved: (value) {
+                      _sexoCliente = value!;
+                    },
+                    controller: _sexoController,
                 //autofocus: true,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                     labelText: "Sexo",
                     labelStyle: TextStyle(
@@ -115,9 +174,13 @@ class  cadastroCliente extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              TextFormField(
+                  TextFormField(
+                    onSaved: (value) {
+                      _datNascimentoCliente = value!;
+                    },
+                    controller: _datNascimentoController,
                 //autofocus: true,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.datetime,
                 decoration: InputDecoration(
                     labelText: "Data de Nascimento",
                     labelStyle: TextStyle(
@@ -127,6 +190,9 @@ class  cadastroCliente extends StatelessWidget {
                     )
                 ),
               ),
+                ],
+                ),
+                ),
               SizedBox(
                 height: 30,
               ),
@@ -141,7 +207,9 @@ class  cadastroCliente extends StatelessWidget {
                 ),
                 child: SizedBox.expand(
                   child: FlatButton(
-                    onPressed: () {  },
+                    onPressed: () {
+                      firebase.createNewUser(_cpfController.text, _emailController.text, _nomeController.text, _telefoneController.text, _datNascimentoController.text, _sexoController.text, _passwordController.text);
+                    },
                     child: Row(
                       //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[

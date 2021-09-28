@@ -159,7 +159,7 @@ class  LoginPage extends StatelessWidget {
                         print("OK")
                       },
                       //firebase.call_child_db("junkes1995@gmail.com")
-                      firebase.createNewUser("12905361980", "braincz@gmail.com", "Braian C. Zapelli.", _passwordController.text, "10/06/2002", "M", "semsenha")
+                      //firebase.createNewUser("12905361980", "braincz@gmail.com", "Braian C. Zapellin.", _passwordController.text, "10/06/2002", "M", "semsenha")
                     },
                   ),
                 ),

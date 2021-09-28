@@ -73,6 +73,8 @@ class Firebase {
   }
 
   bool validaUser(String emailID, String password) {
+    print(emailID);
+    print(password);
     return call_senha(emailID,password);
   }
 
