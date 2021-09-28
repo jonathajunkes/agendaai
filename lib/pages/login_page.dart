@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../configs/firebase.dart';
+import '../../configs/firebase.dart';
+import 'escolhaCadastro.dart';
 
 
 class  LoginPage extends StatelessWidget {
@@ -179,7 +180,14 @@ class  LoginPage extends StatelessWidget {
                         ),
                         textAlign: TextAlign.center,
                       ),
-                      onPressed: () {}
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => escolhaCadastro(),
+                          ),
+                        );
+                      }
                   )
               ),
 
