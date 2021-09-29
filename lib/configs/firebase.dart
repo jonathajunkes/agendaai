@@ -66,6 +66,24 @@ class Firebase {
     );
     //print(response.body);
   }
+
+  Future<void> createNewCompany(String cnpj,String email,String nome,String telefone, String tipoServico,String senha)async {
+    final response = await http.put(
+      Uri.parse(_firebaseUrl+"companies/$cnpj.json"),
+      headers: {
+        'Content-Type' : 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode({
+        'nome': nome,
+        'telefone': telefone,
+        'tipoServico': tipoServico,
+        'email': email,
+        'senha': gerarHASH(senha)
+      }),
+    );
+    //print(response.body);
+  }
+
   String gerarHASH(String texto){
     var bytess = utf8.encode(texto);
     var hashs = sha256.convert(bytess);
@@ -73,8 +91,6 @@ class Firebase {
   }
 
   bool validaUser(String emailID, String password) {
-    print(emailID);
-    print(password);
     return call_senha(emailID,password);
   }
 

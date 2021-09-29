@@ -156,7 +156,12 @@ class  LoginPage extends StatelessWidget {
                         entrar = firebase.validaUser(_emailController.text,_passwordController.text)
                         },
                       if(entrar){
-                        print("OK")
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => escolhaCadastro(),
+                    ),
+                    ),
                       },
                       //firebase.call_child_db("junkes1995@gmail.com")
                       //firebase.createNewUser("12905361980", "braincz@gmail.com", "Braian C. Zapellin.", _passwordController.text, "10/06/2002", "M", "semsenha")
