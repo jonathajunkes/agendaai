@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:cpfcnpj/cpfcnpj.dart';
 
 class Firebase {
   final dbRef = FirebaseDatabase.instance;
@@ -94,5 +95,19 @@ class Firebase {
     return call_senha(emailID,password);
   }
 
+  bool validarCPF(String cpf){
+    return CPF.isValid(cpf);
+  }
+  bool validarCNPJ(String cnpj){
+    return CNPJ.isValid(cnpj);
+  }
+
+  String formatarCPF(String cpf){
+    return CPF.format(cpf); // 123.717.730-85
+  }
+  String formatarCNPJ(String cnpj){
+    return CNPJ.format(cnpj); // 43.814.971/0001-88
+
+  }
 
 }
