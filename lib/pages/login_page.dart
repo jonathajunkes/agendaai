@@ -153,9 +153,10 @@ class  LoginPage extends StatelessWidget {
                     onPressed: () async =>
                     {
                       await{
-                        entrar = firebase.validaUser(_emailController.text,_passwordController.text)
+                        entrar = firebase.validaUser(_emailController.text,_passwordController.text),
+                        print('123 $entrar')
                         },
-                      if(entrar){
+                      if(entrar==false){
                     Navigator.push(
                     context,
                     MaterialPageRoute(

@@ -1,3 +1,4 @@
+import 'package:agendaapp/configs/Validador.dart';
 import 'package:flutter/material.dart';
 import '../configs/firebase.dart';
 
@@ -57,6 +58,7 @@ class  cadastroCliente extends StatelessWidget {
                 height: 40,
               ),
                 Form(
+                    key: _formKey,
                 child: Column(
                 children: [
                 TextFormField(
@@ -85,7 +87,16 @@ class  cadastroCliente extends StatelessWidget {
                     controller: _cpfController,
                 //autofocus: true,
                 keyboardType: TextInputType.number,
-                decoration: InputDecoration(
+                    validator: (_cpfCliente) {
+                      // Aqui entram as validações
+                      return Validador()
+                          .add(Validar.CPF, msg: 'CPF Inválido')
+                          .add(Validar.OBRIGATORIO, msg: 'Campo obrigatório')
+                          .minLength(11)
+                          .maxLength(11)
+                          .valido(_cpfCliente,clearNoNumber: true);
+                    },
+                    decoration: InputDecoration(
                     labelText: "CPF",
                     labelStyle: TextStyle(
                         color: Colors.black38,
@@ -208,12 +219,18 @@ class  cadastroCliente extends StatelessWidget {
                 child: SizedBox.expand(
                   child: FlatButton(
                     onPressed: () {
-                      firebase.createNewUser(_cpfController.text, _emailController.text, _nomeController.text, _telefoneController.text, _datNascimentoController.text, _sexoController.text, _passwordController.text);
                     },
                     child: Row(
                       //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text(
+                        ElevatedButton(
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              firebase.createNewUser(_cpfController.text, _emailController.text, _nomeController.text, _telefoneController.text, _datNascimentoController.text, _sexoController.text, _passwordController.text);
+
+                            }
+                          },
+                          child: Text(
                           "Cadastrar Cliente",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -221,6 +238,7 @@ class  cadastroCliente extends StatelessWidget {
                             fontSize: 20,
                           ),
                           textAlign: TextAlign.left,
+                        ),
                         ),
                       ],
                     ),
@@ -246,3 +264,4 @@ class  cadastroCliente extends StatelessWidget {
     );
   }
 }
+

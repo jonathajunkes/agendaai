@@ -6,14 +6,13 @@ import 'package:cpfcnpj/cpfcnpj.dart';
 
 class Firebase {
   final dbRef = FirebaseDatabase.instance;
-
+  bool flag = false;
   static const _firebaseUrl = 'https://agendaai-85f9f-default-rtdb.firebaseio.com/';
 
   bool call_senha(String key,String pwd){
     String senhaBD = '';
-    String senha = gerarHASH(pwd);
+    String senha = pwd;
     String cpf = '';
-    bool flag = false;
     //var db = FirebaseDatabase.instance.reference().child("Users").orderByKey().equalTo(key);
     var db = FirebaseDatabase.instance.reference().child("Users").orderByChild("email").equalTo(key);
     db.once().then((DataSnapshot snapshot){
@@ -24,15 +23,15 @@ class Firebase {
         print(senhaBD);
         print(senha);
         if(senha==senhaBD){
-          print("True");
+          flag=true;
         }
       });
 
     });
-
-    if(senhaBD==senha){
-      flag = true;
+    if(flag==true){
+      print("entrou aqui!");
     }
+    print ('call senha é $flag');
     return flag;
   }
 
@@ -92,7 +91,9 @@ class Firebase {
   }
 
   bool validaUser(String emailID, String password) {
-    return call_senha(emailID,password);
+    var validar = call_senha(emailID,password);
+    //print(validar);
+    return validar;
   }
 
   bool validarCPF(String cpf){
