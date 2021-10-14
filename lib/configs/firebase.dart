@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:cpfcnpj/cpfcnpj.dart';
+//import 'package:cpfcnpj/cpfcnpj.dart';
 
 class Firebase {
   final dbRef = FirebaseDatabase.instance;
@@ -96,7 +96,7 @@ class Firebase {
     return validar;
   }
 
-  bool validarCPF(String cpf){
+  /*bool validarCPF(String cpf){
     return CPF.isValid(cpf);
   }
   bool validarCNPJ(String cnpj){
@@ -117,5 +117,5 @@ class Firebase {
     RegExp regExp = new RegExp(p);
 
     return regExp.hasMatch(em);
-  }
+  }*/
 }
