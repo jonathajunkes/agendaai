@@ -1,8 +1,9 @@
+import 'package:agendaapp/pages/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:loginwithfirebaseauth/telas/home.dart';
-import 'package:loginwithfirebaseauth/utils/authentication.dart';
+import 'package:agendaapp/auth/home.dart';
+import 'package:agendaapp/auth/authentication.dart';
 
 class GoogleSignInButton extends StatefulWidget {
   const GoogleSignInButton({Key? key}) : super(key: key);
@@ -45,9 +46,9 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
           if (user != null) {
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(
-                builder: (context) => UserInfoScreen(
-                  user: user,
-                ),
+                builder: (context) => Home(),//UserInfoScreen(
+                 // user: user,
+              //  ),
               ),
             );
           }
@@ -62,7 +63,6 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
               Image(
                 image: AssetImage("assets/images/google.png"),
                 height: 35.0,
-
               ),
               Padding(
                 padding: EdgeInsets.only(left: 10),

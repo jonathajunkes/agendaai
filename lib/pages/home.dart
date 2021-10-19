@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../configs/firebase.dart';
 
-class  home extends StatelessWidget {
+class  Home extends StatelessWidget {
   Firebase firebase = Firebase();
 
   @override

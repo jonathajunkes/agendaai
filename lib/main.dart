@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'pages/login_page.dart';
-import 'pages/home.dart';
-import 'pages/cadastroEmpresa.dart';
+
+import 'auth/login.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
       ),
-      home: home(),
+      home: Login(),
     );
   }
 }
