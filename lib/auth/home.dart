@@ -51,11 +51,11 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColors.firebaseNavy,
+      backgroundColor: CustomColors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: CustomColors.firebaseNavy,
-        title: Text("Teste"),
+        backgroundColor: CustomColors.white,
+        title: Text(" "),
       ),
       body: SafeArea(
         child: Padding(
@@ -93,7 +93,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               ),
               SizedBox(height: 16.0),
               Text(
-                'Hello',
+                'Olá,',
                 style: TextStyle(
                   color: CustomColors.firebaseGrey,
                   fontSize: 26,
@@ -103,7 +103,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               Text(
                 _user.displayName!,
                 style: TextStyle(
-                  color: CustomColors.firebaseYellow,
+                  color: CustomColors.logo1_c2,
                   fontSize: 26,
                 ),
               ),
@@ -111,14 +111,14 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               Text(
                 '( ${_user.email!} )',
                 style: TextStyle(
-                  color: CustomColors.firebaseOrange,
+                  color: CustomColors.logo1_c2,
                   fontSize: 20,
                   letterSpacing: 0.5,
                 ),
               ),
               SizedBox(height: 24.0),
               Text(
-                'You are now signed in using your Google account. To sign out of your account, click the "Sign Out" button below.',
+                'Você logou usando sua conta do Google. Para deslogar, clique no botão abaixo "Sair"',
                 style: TextStyle(
                     color: CustomColors.firebaseGrey.withOpacity(0.8),
                     fontSize: 14,
@@ -154,7 +154,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                 child: Padding(
                   padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
                   child: Text(
-                    'Sign Out',
+                    'Sair',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
