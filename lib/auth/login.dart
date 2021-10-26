@@ -15,7 +15,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColors.firebaseNavy,
+      backgroundColor: CustomColors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(
@@ -35,21 +35,21 @@ class _LoginState extends State<Login> {
                     Flexible(
                       flex: 1,
                       //child: Text("LOGIN"),
-                      child: Image.asset('assets/firebase_logo.png',height: 160,)
+                      child: Image.asset('assets/images/logo1.PNG',height: 160,)
                     ),
                     const SizedBox(height: 20),
                     const Text(
-                      'Agenda-Ái',
+                      ' ',
                       style: TextStyle(
                         color: CustomColors.firebaseYellow,
                         fontSize: 40,
                       ),
                     ),
                     const Text(
-                      'Várias parada massa!',
+                      'Agende seu futuro aqui!',
                       style: TextStyle(
-                        color: CustomColors.firebaseOrange,
-                        fontSize: 32,
+                        color: CustomColors.logo2_c1,
+                        fontSize: 24,
                       ),
                     ),
                   ],

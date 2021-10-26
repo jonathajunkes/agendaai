@@ -1,5 +1,6 @@
 
 import 'package:agendaapp/pages/home.dart';
+import 'package:agendaapp/pages/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
@@ -21,7 +22,7 @@ class Authentication {
     if (user != null) {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => Home(),//UserInfoScreen(
+          builder: (context) => UserInfoScreen(user: user,),//UserInfoScreen(
             //user: user,
           //),
         ),
